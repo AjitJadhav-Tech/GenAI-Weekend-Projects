@@ -1,0 +1,19 @@
+$kind: collection
+description: Postman Collection to invoke the deployed Bedrock AgentCore Runtime Stock Agent endpoint directly over HTTPS using AWS Signature (SigV4).
+variables:
+  AWS_ACCOUNT_ID: "471613014056"
+  AWS_REGION: us-east-1
+  AGENT_ARN_ENCODED: arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A471613014056%3Aruntime%2Fhealthcare_agent-mtOP7u5mX9
+  AWS_ACCESS_KEY_ID: "{{aws_access_key_0p4r}}"
+  AWS_SECRET_ACCESS_KEY: xz7zYkDtOkAfFuZkQaCZoUuAVYDCtyqxeutGLNOd
+  AWS_SESSION_TOKEN: ""
+auth:
+  - id: f4343170-a385-46e9-aa03-04de93be0dc5
+    type: awsv4
+    name: awsv4 auth
+    credentials:
+      region: "{{AWS_REGION}}"
+      service: bedrock-agentcore
+      secretKey: "{{AWS_SECRET_ACCESS_KEY}}"
+      accessKey: "{{AWS_ACCESS_KEY_ID}}"
+      sessionToken: "{{AWS_SESSION_TOKEN}}"

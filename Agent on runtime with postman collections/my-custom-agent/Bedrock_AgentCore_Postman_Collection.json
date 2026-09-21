@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "bedrock-agentcore-runtime-collection",
+		"name": "Amazon Bedrock AgentCore Runtime API",
+		"description": "Postman Collection to invoke the deployed Bedrock AgentCore Runtime Stock Agent endpoint directly over HTTPS using AWS Signature (SigV4).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"auth": {
+		"type": "awsv4",
+		"awsv4": [
+			{
+				"key": "accessKey",
+				"value": "{{AWS_ACCESS_KEY_ID}}",
+				"type": "string"
+			},
+			{
+				"key": "secretKey",
+				"value": "{{AWS_SECRET_ACCESS_KEY}}",
+				"type": "string"
+			},
+			{
+				"key": "region",
+				"value": "{{AWS_REGION}}",
+				"type": "string"
+			},
+			{
+				"key": "service",
+				"value": "bedrock-agentcore",
+				"type": "string"
+			}
+		]
+	},
+	"item": [
+		{
+			"name": "1. Check Apple Stock (AAPL)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"prompt\": \"What is the current stock price of Apple (AAPL)?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bedrock-agentcore.{{AWS_REGION}}.amazonaws.com/runtimes/{{AGENT_ARN_ENCODED}}/invocations",
+					"protocol": "https",
+					"host": [
+						"bedrock-agentcore",
+						"{{AWS_REGION}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"runtimes",
+						"{{AGENT_ARN_ENCODED}}",
+						"invocations"
+					]
+				},
+				"description": "Invoke live agent endpoint to fetch Apple (AAPL) stock price using yfinance tool."
+			},
+			"response": []
+		},
+		{
+			"name": "2. Check Tesla Stock (TSLA)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"prompt\": \"Check current stock price and market cap for Tesla (TSLA).\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bedrock-agentcore.{{AWS_REGION}}.amazonaws.com/runtimes/{{AGENT_ARN_ENCODED}}/invocations",
+					"protocol": "https",
+					"host": [
+						"bedrock-agentcore",
+						"{{AWS_REGION}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"runtimes",
+						"{{AGENT_ARN_ENCODED}}",
+						"invocations"
+					]
+				},
+				"description": "Invoke live agent endpoint to fetch Tesla (TSLA) stock price and market capitalization."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Custom Stock Query",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"prompt\": \"What is the stock price and 52-week high for Nvidia (NVDA)?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bedrock-agentcore.{{AWS_REGION}}.amazonaws.com/runtimes/{{AGENT_ARN_ENCODED}}/invocations",
+					"protocol": "https",
+					"host": [
+						"bedrock-agentcore",
+						"{{AWS_REGION}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"runtimes",
+						"{{AGENT_ARN_ENCODED}}",
+						"invocations"
+					]
+				},
+				"description": "Custom query to check stock prices for any symbol."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "AWS_ACCOUNT_ID",
+			"value": "471613014056",
+			"type": "string"
+		},
+		{
+			"key": "AWS_REGION",
+			"value": "us-east-1",
+			"type": "string"
+		},
+		{
+			"key": "AGENT_ARN_ENCODED",
+			"value": "arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A471613014056%3Aruntime%2Fhealthcare_agent-mtOP7u5mX9",
+			"type": "string"
+		},
+		{
+			"key": "AWS_ACCESS_KEY_ID",
+			"value": "AKIAW3TSTQAUHOU6LUNP",
+			"type": "string"
+		},
+		{
+			"key": "AWS_SECRET_ACCESS_KEY",
+			"value": "xz7zYkDtOkAfFuZkQaCZoUuAVYDCtyqxeutGLNOd",
+			"type": "string"
+		}
+	]
+}

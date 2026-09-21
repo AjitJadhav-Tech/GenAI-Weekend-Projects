@@ -1,0 +1,14 @@
+$kind: http-request
+description: Custom query to check stock prices for any symbol.
+url: https://bedrock-agentcore.{{AWS_REGION}}.amazonaws.com/runtimes/{{AGENT_ARN_ENCODED}}/invocations
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "prompt": "What is the stock price and 52-week high for Nvidia (NVDA)?"
+    }
+order: 3000

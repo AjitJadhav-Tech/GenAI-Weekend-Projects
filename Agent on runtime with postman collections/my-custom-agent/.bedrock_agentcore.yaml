@@ -1,0 +1,62 @@
+default_agent: healthcare_agent
+agents:
+  healthcare_agent:
+    name: healthcare_agent
+    language: python
+    node_version: '20'
+    entrypoint: C:/Users/ajitj/Downloads/my-custom-agent/my-custom-agent/agent.py
+    deployment_type: container
+    runtime_type: null
+    platform: linux/arm64
+    container_runtime: docker
+    source_path: C:\Users\ajitj\Downloads\my-custom-agent\my-custom-agent
+    aws:
+      execution_role: arn:aws:iam::471613014056:role/AmazonBedrockAgentCoreSDKRuntime-us-east-1-4fec2c849b
+      execution_role_auto_create: false
+      account: '471613014056'
+      region: us-east-1
+      ecr_repository: 471613014056.dkr.ecr.us-east-1.amazonaws.com/bedrock-agentcore-healthcare_agent
+      ecr_auto_create: false
+      s3_path: null
+      s3_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+      lifecycle_configuration:
+        idle_runtime_session_timeout: null
+        max_lifetime: null
+    bedrock_agentcore:
+      agent_id: healthcare_agent-mtOP7u5mX9
+      agent_arn: arn:aws:bedrock-agentcore:us-east-1:471613014056:runtime/healthcare_agent-mtOP7u5mX9
+      agent_session_id: 2fd18aba-7696-40d2-a275-a0f8bb3eff3e
+    codebuild:
+      project_name: bedrock-agentcore-healthcare_agent-builder
+      execution_role: arn:aws:iam::471613014056:role/AmazonBedrockAgentCoreSDKCodeBuild-us-east-1-4fec2c849b
+      source_bucket: bedrock-agentcore-codebuild-sources-471613014056-us-east-1
+    memory:
+      mode: STM_ONLY
+      memory_id: healthcare_agent_mem-nRoWPE3Pcv
+      memory_arn: arn:aws:bedrock-agentcore:us-east-1:471613014056:memory/healthcare_agent_mem-nRoWPE3Pcv
+      memory_name: healthcare_agent_mem
+      event_expiry_days: 30
+      first_invoke_memory_check_done: true
+      was_created_by_toolkit: true
+    identity:
+      credential_providers: []
+      workload: null
+    aws_jwt:
+      enabled: false
+      audiences: []
+      signing_algorithm: ES384
+      issuer_url: null
+      duration_seconds: 300
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
+    api_key_env_var_name: null
+    api_key_credential_provider_name: null
+    is_generated_by_agentcore_create: false

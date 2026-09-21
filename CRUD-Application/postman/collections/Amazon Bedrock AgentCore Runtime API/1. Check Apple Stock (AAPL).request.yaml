@@ -1,0 +1,14 @@
+$kind: http-request
+description: Invoke live agent endpoint to fetch Apple (AAPL) stock price using yfinance tool.
+url: https://bedrock-agentcore.{{AWS_REGION}}.amazonaws.com/runtimes/{{AGENT_ARN_ENCODED}}/invocations
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "prompt": "What is the current stock price of Apple (AAPL)?"
+    }
+order: 1000
